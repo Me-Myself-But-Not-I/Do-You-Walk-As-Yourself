@@ -218,6 +218,8 @@ GameObject:
   - component: {fileID: 386143858}
   - component: {fileID: 386143857}
   - component: {fileID: 386143856}
+  - component: {fileID: 386143861}
+  - component: {fileID: 386143860}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -283,7 +285,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -303,6 +305,7 @@ RectTransform:
   - {fileID: 1727853532}
   - {fileID: 545756839}
   - {fileID: 193509800}
+  - {fileID: 431075919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -310,6 +313,344 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &386143860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386143855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2181a3ad86264cdfb88c83bf4d443ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  details: {fileID: 11400000, guid: 0582f506c750dd5b28cece5231a06f47, type: 2}
+  speaker: {fileID: 0}
+  chance: 0
+  fchance: 0
+  character: 0
+  fae: 0
+  walker: 0
+  shot: 0
+  documented: 0
+  released: 0
+  decided: 0
+  person: 0
+  Characters: []
+--- !u!114 &386143861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386143855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0df6d6637da827ca40139a25dfdc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharSel: {fileID: 386143860}
+  details: {fileID: 11400000, guid: 0582f506c750dd5b28cece5231a06f47, type: 2}
+  character: 0
+  speachSelected: 0
+  chatBox: {fileID: 431075917}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  button3: {fileID: 0}
+  speaches1:
+  - Hello, may I have your name?
+  - Hi there, I am here for my interview.
+  - Hi, How are you?
+  - What's up?
+  - I was told I need to come in here.
+  - Hey there, I'm kind of busy, can we make this quick
+  - This is all stupid, Skinwalkers aren't real, neither are Fae.
+  - Hello, what do you need.
+  - I'm back. Oh, are you new?
+  - Those skinwalkers are terrifying, thank you for this.
+  - I just want to go home.
+  - What is a human truly, why should those who hide be removed?
+  speaches2:
+  - Hi again, uuhhh, I didn't get your name last time
+  - Hey, I'm back for another interview
+  - Hello, how are you?
+  - What's happening with you?
+  - I was told I need to come back.
+  - I don't have much time, hurry up.
+  - Ok, I have seen them, I believe you now.
+  - Again,yay!
+  - Hey newbie, how ya goin'
+  - Thank you for your service.
+  - Can I leave yet?
+  - What is a being of tricks if not one of simple logic?
+  speaches3:
+  - Hi again, may I have your name?
+  - Interview day, my favourite part of the week.
+  - How are you going?
+  - What's Up?
+  - I was told that this is very frequent now.
+  - I have places to be, hurry up.
+  - Thank you, they keep getting in.
+  - Again!
+  - Hey there, do you have time after your shift?
+  - Thank you again.
+  - Please, just let me leave.
+  - Why should one have to repeat a test, why not monitor activity?
+  button1Text:
+  - What are you, a Fae?
+  - Welcome, may I request your name?
+  - I'm ok, now, are you a skinwalker?
+  - The ceiling, why did you kill those people?
+  - Yes, you do, where do you live?
+  - Just for you I'll make this long, have you ever seen a skinwalker?
+  - They are real. Please, do you know any Fae?
+  - Answers, did you take someone's skin?
+  - Yes, I'm new. Who are you?
+  - No problem, where have you seen them?
+  - You can after. Have you ever met a Fae?
+  - They can be dangerous to others. Have you ever seen one?
+  button2Text:
+  - No, do you know any Fae?
+  - Welcome, may I request your occupation?
+  - I'm ok, now, are you a Fae?
+  - Space, have you ever seen a skinwalker?
+  - Yes, you do. Do you live?
+  - Just for you I'll make this long, have you ever seen a Fae?
+  - They are truly dangerous. Please, do you know anyone who has been replaced?
+  - Answers, did you take someone's Name?
+  - Yes, I'm new. I don't have time. Do you want my skin?
+  - No problem, have you ever been attacked by one?
+  - You can after. How many encounters have you had with skinwalkers?
+  - They must be removed before causing harm. What do you know about them?
+  button3Text:
+  - No, have you seen a skinwalker?
+  - Welcome, may I request your address?
+  - I'm ok, now, have you ever been attacked by a Fae?
+  - Not much, has anyone ever asked to have your name?
+  - Yes, you do. Do you kill?
+  - We can be done quickly, are any of your relatives Fae?
+  - Conspiracy theories! why would they be fake?
+  - Information. Are you real?
+  - Yes, I'm new. I am not interested. Do you want my skin?
+  - No problem, have you ever seen a Fae?
+  - You can after. Who might you be?
+  - They are dangerous creature who shouldn't exist. Are you defending them?
+  Response1:
+  - 1-1
+  - 1-2
+  - 1-3
+  - 1-4
+  - 1-5
+  - 1-6
+  - 1-7
+  - 1-8
+  - 1-9
+  - 1-10
+  - 1-11
+  - 1-12
+  Response2:
+  - 2-1
+  - 2-2
+  - 2-3
+  - 2-4
+  - 2-5
+  - 2-6
+  - 2-7
+  - 2-8
+  - 2-9
+  - 2-10
+  - 2-11
+  - 2-12
+  Response3:
+  - 3-1
+  - 3-2
+  - 3-3
+  - 3-4
+  - 3-5
+  - 3-6
+  - 3-7
+  - 3-8
+  - 3-9
+  - 3-10
+  - 3-11
+  - 3-12
+  FaeSpeach:
+  - Hello, may I have your name and contact details?
+  - Hi there. would you like to take part in my new belief?
+  - Hello, may I have the purpose for being here?
+  - What's up? I will bet everything I own you get this wrong.
+  walkerSpeach:
+  - Hello, do you human today?
+  - Hi there, I am here for my talking.
+  - Hi, are you good?
+  - What is above?
+  - I was told they need to come in here.
+  - Hey there, we're kind of busy, can we make this quick
+  - This is all stupid, Skinwalkers aren't real, even if they were, you think I am
+    one?
+  - Hello, what dost thou need.
+  - I'm back. Oh, am I new?
+  - Those skinwalkers aren't that bad, this is unnecessary.
+  - I just want to go home and learn my life.
+  - What is a skinwalker truly, why should those who hide be removed?
+  FaeResponse:
+  - Me? I have never been in the same room as a Fae or Skinwalker! Much less am I
+    one. I may need to report your assumptions, may I have your name?
+  - Sure, but fist may I have yours?
+  - That's good. No, I have seen them but never interacted, much less been, one.
+  - I have not. I am legally bound to tell the truth and only the truth I tell.
+  walkerResponse:
+  - No, I am a normal person, I have never met another kind.
+  - Those details are classified, I can't share them.
+  - That's good, no, I'm not even sure they exist
+  - I didn't do anything, and none did any to me.
+  - I live a ordinary life, at my house most time, I lack the time to kill
+  - I have met no Fae, nor have I met skinwalkers.
+  - I still think it's preposterous to believe in beings that steal our skin.
+  - I am real, I stand before you, as myself, under my name.
+  - I am an ordinary human, you have my details there.
+  - I have never seen either of these dangerous creatures
+  - I am me, I have never seen a Fae or Skinwalker.
+  - Are they inherently dangerous, could it simply be that you killing them has made
+    them mad?
+--- !u!1 &431075916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431075919}
+  - component: {fileID: 431075918}
+  - component: {fileID: 431075917}
+  m_Layer: 5
+  m_Name: ChatBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &431075917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431075916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &431075918
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431075916}
+  m_CullTransparentMesh: 1
+--- !u!224 &431075919
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431075916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 386143859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -194}
+  m_SizeDelta: {x: 550, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &545756838
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +980,7 @@ Transform:
   m_GameObject: {fileID: 1727853531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.30443293, w: 0.9525338}
-  m_LocalPosition: {x: 314, y: -181, z: 0}
+  m_LocalPosition: {x: 397, y: -122, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
