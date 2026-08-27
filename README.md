@@ -11,3 +11,5 @@ It was developed by Samuel Dingle and Samuel Jordan.
 - IntelliJ Idea Ultimate
 - Jetbrains Rider
 - Unity Engine
+- Clip Studio Paint
+- Krita
