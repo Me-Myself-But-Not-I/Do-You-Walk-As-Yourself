@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Speach : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class Speach : MonoBehaviour
     public TextMeshProUGUI button1;
     public TextMeshProUGUI button2;
     public TextMeshProUGUI button3;
+    public bool gameOver;
+    public int button;
 
     public string[] speaches1 =
     {
@@ -71,20 +75,85 @@ public class Speach : MonoBehaviour
         "You can after. Who might you be?", "They are dangerous creature who shouldn't exist. Are you defending them?"
     }; 
     
-    public string[] Response1 = { "1-1", "1-2", "1-3" , "1-4", "1-5", "1-6", "1-7", "1-8", "1-9", "1-10", "1-11", "1-12"};
-    public string[] Response2 = { "2-1", "2-2", "2-3" , "2-4", "2-5", "2-6", "2-7", "2-8", "2-9", "2-10", "2-11", "2-12"};
-    public string[] Response3 = { "3-1", "3-2", "3-3" , "3-4", "3-5", "3-6", "3-7", "3-8", "3-9", "3-10", "3-11", "3-12"};
+    private string[] Response1 = { "No, I'm not a Fae, I just want to know to whom I speak.", "Thank you, my name is John.", "No, I'm just an average guy." , "Way to kill the fun, I never harmed anyone.", 
+        "That is personal, I live on Main Street.", "Rude, I have never seen one.", "Real-- maybe. Though I know no Fae.", "That is not how you start a conversation. No, i have no one else's skin.", "Oh. I feel offended that I am not recognised! You know who I am!", "My Neighbour's house, I think there were 3.", "No, I need to go.", "Can you truly 'see' something, or just believe you see, is this real?"};
+    private string[] Response2 = { "Never seen one. I know some people who were tricked though.", "Of course, I'm a builder.", "No, I don't rely on tricks." , "I saw one from a distance at one time.", 
+        "Yes I live, that is a strange question.", "Dude, I have things to do. No I haven't seen a Fae.", "Ok, they can be dangerous. I know no-one that has been replaced.", "I have only my own name.", "No, my skin is perfect, it should be enough for you to get time.", "I haven't, but I have seen what they do, it was terrifying!", "Not one, I have things to do.", "I know of them all that I know, and that may be all that humanity knows, or may be a small part."};
+    private string[] Response3 = { "No. I probably wouldn't survive an encounter.", "No, that is personal.", "No never, I didn't know Fae were hostile." , "People have asked to know it, not to have it.", 
+        "No, I respect other's desire to live.", "I'm not a Fae, so neither are they.", "The government wants to control our lives!", "Do I look real? Of course I'm real!", "Ok newbie, why would one as perfect as I want your skin?", "No, I have only seen the walkers.", "I am but a lowly office clerk, I have a meeting in 5 minutes.", "Defence, no; question, yes, why should they be eliminated completely, they just live as is natural to them."};
     public string[] FaeSpeach = {"Hello, may I have your name and contact details?", "Hi there. would you like to take part in my new belief?", 
         "Hello, may I have the purpose for being here?", "What's up? I will bet everything I own you get this wrong."};
     public string[] walkerSpeach = { "Hello, do you human today?", "Hi there, I am here for my talking.", "Hi, are you good?", "What is above?", "I was told they need to come in here.", "Hey there, we're kind of busy, can we make this quick",
         "This is all stupid, Skinwalkers aren't real, even if they were, you think I am one?", "Hello, what dost thou need.", "I'm back. Oh, am I new?", "Those skinwalkers aren't that bad, this is unnecessary.", "I just want to go home and learn my life.", "What is a skinwalker truly, why should those who hide be removed?" };
-    public string[] FaeResponse = {"Me? I have never been in the same room as a Fae or Skinwalker! Much less am I one. I may need to report your assumptions, may I have your name?", "Sure, but fist may I have yours?", "That's good. No, I have seen them but never interacted, much less been, one.", "I have not. I am legally bound to tell the truth and only the truth I tell."};
+    public string[] FaeResponse = {"Me? I have never been in the same room as a Fae or Skinwalker! Much less am I one. I may need to report your assumptions, may I have your name?", "Sure, but first may I have yours?", "That's good. No, I have seen them but never interacted, much less been, one.", "I have not. I am legally bound to tell the truth and only the truth I tell."};
     public string[] walkerResponse = {"No, I am a normal person, I have never met another kind.", "Those details are classified, I can't share them.", "That's good, no, I'm not even sure they exist", "I didn't do anything, and none did any to me.", "I live a ordinary life, at my house most time, I lack the time to kill", "I have met no Fae, nor have I met skinwalkers.", 
         "I still think it's preposterous to believe in beings that steal our skin.", "I am real, I stand before you, as myself, under my name.", "I am an ordinary human, you have my details there.", "I have never seen either of these dangerous creatures", "I am me, I have never seen a Fae or Skinwalker.", "Are they inherently dangerous, could it simply be that you killing them has made them mad?" };
 
+    private void FixedUpdate()
+    {
+        if (chatBox.text != Response1[character] && chatBox.text != Response2[character] &&
+            chatBox.text != Response3[character] && chatBox.text != speaches1[character] && 
+            chatBox.text != speaches2[character] && chatBox.text != speaches3[character] &&
+            chatBox.text != FaeSpeach[character] && chatBox.text != FaeResponse[character] &&
+            chatBox.text != walkerResponse[character] && chatBox.text != walkerSpeach[character]
+            )
+        {
+            if (CharSel.fae)
+            {
+                if (button == 0)
+                {
+                    chatBox.text = FaeSpeach[character];
+                }
+                else if (button != 0)
+                {
+                    chatBox.text = FaeResponse[character];
+                }
+            }
+            else if (CharSel.walker)
+            {
+                if (button == 0)
+                {
+                    chatBox.text = walkerSpeach[character];
+                }
+                else if (button != 0)
+                {
+                    chatBox.text = walkerResponse[character];
+                }
+            }
+            else if (button == 0)
+            {
+                if (speachSelected == 1)
+                {
+                    chatBox.text = speaches1[character];
+                }
+                else if (speachSelected == 2)
+                {
+                    chatBox.text = speaches2[character];
+                }
+                else if (speachSelected == 3)
+                {
+                    chatBox.text = speaches3[character];
+                }
+            }
+            else if (button == 1)
+            {
+                chatBox.text = Response1[character];
+            }
+            else if (button == 2)
+            {
+                chatBox.text = Response2[character];
+            }
+            else if (button == 3)
+            {
+                chatBox.text = Response3[character];
+            }
+        } 
+    }
+    
     public void speak()
     {
         character = CharSel.character;
+        button = 0;
         speachSelected = Random.Range(1, 3);
         if (details.day == 1)
         {
@@ -122,60 +191,77 @@ public class Speach : MonoBehaviour
 
     public void button1Pressed()
     {
-        if (!CharSel.fae && !CharSel.walker)
+        if (button == 0)
         {
-            chatBox.text = Response1[character];
-        }
-        else if (CharSel.fae && !CharSel.walker)
-        {
-            chatBox.text = FaeResponse[character];
-        }
-        else if (CharSel.walker && !CharSel.fae)
-        {
-            chatBox.text = walkerResponse[character];
+            if (!CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = Response1[character];
+            }
+            else if (CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = FaeResponse[character];
+            }
+            else if (CharSel.walker && !CharSel.fae)
+            {
+                chatBox.text = walkerResponse[character];
+            }
+
+            button = 1;
         }
     }
 
     public void button2Pressed()
     {
-        if (!CharSel.fae && !CharSel.walker)
+        if (button == 0)
         {
-            chatBox.text = Response2[character];
-        }
-        else if (CharSel.fae && !CharSel.walker)
-        {
-            chatBox.text = FaeResponse[character];
-        }
-        else if (CharSel.walker && !CharSel.fae)
-        {
-            chatBox.text = walkerResponse[character];
+            if (!CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = Response2[character];
+            }
+            else if (CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = FaeResponse[character];
+            }
+            else if (CharSel.walker && !CharSel.fae)
+            {
+                chatBox.text = walkerResponse[character];
+            }
+
+            button = 2;
         }
     }
 
     public void button3Pressed()
     {
-        if (!CharSel.fae && !CharSel.walker)
+        if (button == 0)
         {
-            chatBox.text = Response3[character];
-        }
-        else if (CharSel.fae && !CharSel.walker)
-        {
-            chatBox.text = FaeResponse[character];
-        }
-        else if (CharSel.walker && !CharSel.fae)
-        {
-            chatBox.text = walkerResponse[character];
+            if (!CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = Response3[character];
+            }
+            else if (CharSel.fae && !CharSel.walker)
+            {
+                chatBox.text = FaeResponse[character];
+            }
+            else if (CharSel.walker && !CharSel.fae)
+            {
+                chatBox.text = walkerResponse[character];
+            }
+
+        button = 3;
         }
     }
 
     public void gameWon()
     {
         chatBox.text = "Congratulations! You successfully found and removed all skinwalkers!";
+        gameOver = true;
     }
 
     public void gameLost()
     {
         chatBox.text =
             "An individual was misidentified, this has caused a major loss of identity, life, or both. You shall be severely disciplined.";
+        gameOver = true;
     }
 }

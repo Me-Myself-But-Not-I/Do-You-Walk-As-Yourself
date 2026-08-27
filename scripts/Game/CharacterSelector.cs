@@ -30,25 +30,29 @@ public class CharacterSelector : MonoBehaviour
 
     public void select()
     {
-        number = Random.Range(0f, 100f);
-        chance = (details.day - 2) * 5;
-        fchance = (details.day - 1) * 2;
-        if (number < chance)
+        if (!speaker.gameOver)
         {
-            walker = true;
-            fae = false;
+            number = Random.Range(1f, 100f);
+            chance = (details.day - 2) * 5;
+            fchance = (details.day - 1) * 2;
+            if (number < chance)
+            {
+                walker = true;
+                fae = false;
+            }
+            else if (number < chance + fchance)
+            {
+                fae = true;
+                walker = false;
+            }
+            else
+            {
+                walker = false;
+                fae = false;
+            }
+
+            chooseCharacter();
         }
-        else if (number > chance + fchance)
-        {
-            fae = true;
-            walker = false;
-        }
-        else
-        {
-            walker = false;
-            fae = false;
-        }
-        chooseCharacter();
     }
     
     public void gun()
@@ -83,6 +87,7 @@ public class CharacterSelector : MonoBehaviour
             correct = false;
             decided = true;
         }
+        endPerson();
     }
 
     public void release()
@@ -100,42 +105,39 @@ public class CharacterSelector : MonoBehaviour
         {
             correct = true;
         }
+        endPerson();
     }
 
     public void chooseCharacter()
     {
-        if (details.noFound < 12)
+        if (details.noFound < 11)
         {
             if (fae && !walker)
             {
-                character = Random.Range(1, 4);
+                character = Random.Range(0, 3);
             }
             else if (walker && !fae)
             {
-                character = Random.Range(1, 12);
+                character = Random.Range(0, 11);
             }
             else if (!walker && !fae)
             {
-                character = Random.Range(1, 12);
+                character = Random.Range(0, 11);
             }
 
             if (details.found[character])
             {
                 chooseCharacter();
             }
-            else if (details.faePerson[character])
+            else if (character <4)
             {
-                if (!walker)
+                if (!walker && details.faePerson[character])
                 {
                     fae = true;
                 }
             }
-            else
-            {
-                speaker.speak();
-            }
-
-            for (int i = 1; i < Characters.Length; i++)
+            speaker.speak();
+            for (int i = 0; i < Characters.Length; i++)
             {
                 Characters[i].SetActive(i == character);
             }
@@ -153,6 +155,7 @@ public class CharacterSelector : MonoBehaviour
             if (person < 3)
             {
                 select();
+                person += 1;
             }
             else if(true)
             {
