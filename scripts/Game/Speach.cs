@@ -96,7 +96,7 @@ public class Speach : MonoBehaviour
             chatBox.text != speaches2[character] && chatBox.text != speaches3[character] &&
             chatBox.text != FaeSpeach[character] && chatBox.text != FaeResponse[character] &&
             chatBox.text != walkerResponse[character] && chatBox.text != walkerSpeach[character]
-            )
+            && !CharSel.decided)
         {
             if (CharSel.fae)
             {
@@ -155,6 +155,10 @@ public class Speach : MonoBehaviour
         character = CharSel.character;
         button = 0;
         speachSelected = Random.Range(1, 3);
+        if (details.day == 1 | details.day == 2)
+        {
+            speachSelected = 1;
+        }
         if (details.day == 1)
         {
             chatBox.text = speaches1[character];
